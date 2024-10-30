@@ -1,4 +1,5 @@
 ﻿using Domain.Entity;
+using Domain.EntityDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace Aplication.Service
 {
     public  interface IUser
     {
-        Task<User> CreateUserAsync(User user);
-        Task<User> GetUserByIdAsync(int  id);
-        Task<IEnumerable<User>> GetAllUsersAsync();
-        Task<bool> UpdateUserAsync(User user);
+        Task<GetUserDto> CreateUserAsync(CreateUserDto user);
+        Task<GetUserDto> GetUserByIdAsync(int  id);
+        Task<IEnumerable<GetUserDto>> GetAllUsersAsync();
+        Task<GetUserDto> UpdateUserAsync(UpdateUserDto user);
         Task<bool> DeleteUserAsync(int  id);
     }
 }

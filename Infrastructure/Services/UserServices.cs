@@ -20,9 +20,16 @@ namespace Infrastructure.Services
 
         public async Task<User> CreateUserAsync(User user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-            return user;
+            try
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Xato yuz berdi", ex);
+            }
         }
 
         public async Task<IEnumerable<User>> GetAllUsersAsync()
