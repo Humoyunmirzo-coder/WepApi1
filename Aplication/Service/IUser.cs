@@ -12,7 +12,7 @@ namespace Aplication.Service
     {
         Task<GetUserDto> CreateUserAsync(CreateUserDto user);
         Task<GetUserDto> GetUserByIdAsync(int  id);
-        Task<IEnumerable<GetUserDto>> GetAllUsersAsync();
+        Task<List<GetUserDto>> GetAllUsersAsync();
         Task<GetUserDto> UpdateUserAsync(UpdateUserDto user);
         Task<bool> DeleteUserAsync(int  id);
     }

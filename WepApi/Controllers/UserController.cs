@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Domain.Entity;
 using Aplication.Service;
+using Domain.EntityDto;
 
 namespace WepApi.Controllers
 {
@@ -19,8 +20,9 @@ namespace WepApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _userService.GetAllUsersAsync();
+            List<GetUserDto> users = await _userService.GetAllUsersAsync();
             return Ok(users);
+       
         }
 
         [HttpGet("{id}")]
@@ -35,27 +37,22 @@ namespace WepApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] User user)
+        public async Task<GetUserDto> CreateUser(CreateUserDto user)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var createdUser = await _userService.CreateUserAsync(user);
-            return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
+           var userdto = await _userService.CreateUserAsync(user);
+            return userdto;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
+        public async Task<ActionResult< GetUserDto> >UpdateUser( int id , UpdateUserDto updateUserDto)
         {
-            if (id != user.Id)
+            if (updateUserDto == null)
+                return BadRequest("employee data must be provided.");
+
+            var userUpdate = await _userService.UpdateUserAsync(updateUserDto);
+            if (userUpdate == null)
             {
-                return BadRequest("User ID mismatch.");
-            }
-            var isUpdated = await _userService.UpdateUserAsync(user);
-            if (!isUpdated)
-            {
-                return NotFound();
+                return NotFound($"employee with ID {userUpdate.Id} not found.");
             }
             return NoContent();
         }
