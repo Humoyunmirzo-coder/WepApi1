@@ -16,7 +16,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataDBContext>(
-                 options => options.UseNpgsql("Host=localhost;  Database=dbusers; Username=postgres; Password=2244;"));
+                 options => options.UseNpgsql("Host=localhost;  Database=testdb; Username=postgres; Password=2244;"));
 builder.Services.AddScoped< IUser , UserServices>();
 
 
