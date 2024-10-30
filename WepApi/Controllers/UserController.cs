@@ -18,7 +18,7 @@ namespace WepApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            List<GetUserDto> users = await _userService.GetAllUsersAsync();
+            List<GetUserDto> users = await  _userService.GetAllUsersAsync();
             return Ok(users);
        
         }
