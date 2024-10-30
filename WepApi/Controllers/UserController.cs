@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Domain.Entity;
-using Aplication.Service;
+﻿using Aplication.Service;
 using Domain.EntityDto;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WepApi.Controllers
 {
@@ -22,7 +20,7 @@ namespace WepApi.Controllers
         {
             List<GetUserDto> users = await _userService.GetAllUsersAsync();
             return Ok(users);
-       
+
         }
 
         [HttpGet("{id}")]
@@ -39,12 +37,12 @@ namespace WepApi.Controllers
         [HttpPost]
         public async Task<GetUserDto> CreateUser(CreateUserDto user)
         {
-           var userdto = await _userService.CreateUserAsync(user);
+            var userdto = await _userService.CreateUserAsync(user);
             return userdto;
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult< GetUserDto> >UpdateUser( int id , UpdateUserDto updateUserDto)
+        public async Task<ActionResult<GetUserDto>> UpdateUser(int id, UpdateUserDto updateUserDto)
         {
             if (updateUserDto == null)
                 return BadRequest("employee data must be provided.");
