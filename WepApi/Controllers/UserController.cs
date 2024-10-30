@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Domain.Entity;
-using Aplication.Service;
+﻿using Aplication.Service;
 using Domain.EntityDto;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WepApi.Controllers
 {
