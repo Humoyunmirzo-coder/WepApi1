@@ -22,13 +22,22 @@ namespace Infrastructure.Services
             _mapper = mapper;
         }
 
-        
+
         public async Task<GetUserDto> CreateUserAsync(CreateUserDto userDto)
         {
-            var user = _mapper.Map<User>(userDto); 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-            return _mapper.Map<GetUserDto>(user);
+            try
+            {
+                var user = _mapper.Map<User>(userDto);
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+                return _mapper.Map<GetUserDto>(user);
+            }
+            catch (Exception ex)
+            {
+                // Xato haqida batafsil ma'lumotni yozish
+                Console.WriteLine($"Error occurred: {ex.Message}");
+                throw; // Xatoni qayta otkazish
+            }
         }
 
         public async Task<bool> DeleteUserAsync(int id)
