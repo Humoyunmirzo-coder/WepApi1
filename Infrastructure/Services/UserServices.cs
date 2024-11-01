@@ -50,6 +50,7 @@ namespace Infrastructure.Services
             return true;
         }
 
+
         public async Task<List<GetUserDto>> GetAllUsersAsync()
         {
           var users = await  _context.Users.ToListAsync();
