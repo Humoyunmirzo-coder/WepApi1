@@ -19,7 +19,7 @@ namespace WepApi.Controllers
         public async Task<IActionResult> GetAllUsers()
         {
             List<GetUserDto> users = await  _userService.GetAllUsersAsync();
-            return Ok(users)
+            return Ok(users);
 
         }
 
