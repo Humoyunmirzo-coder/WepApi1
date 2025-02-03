@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WepApi", "WepApi\WepApi.csproj", "{2B08049F-3D24-4045-BE8A-3D2EE95118A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WepApi", "WepApi\WepApi.csproj", "{2B08049F-3D24-4045-BE8A-3D2EE95118A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{BA37B3EC-6011-4685-8E7D-B258011ED03D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{BA37B3EC-6011-4685-8E7D-B258011ED03D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplication", "Aplication\Aplication.csproj", "{103088DC-6839-4D25-B800-B60731BCCC7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aplication", "Aplication\Aplication.csproj", "{103088DC-6839-4D25-B800-B60731BCCC7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1DFA7E00-34C4-46E0-A7EC-59DF7A810E55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{1DFA7E00-34C4-46E0-A7EC-59DF7A810E55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,6 @@
+services:
+  wepapi:
+    image: ${DOCKER_REGISTRY-}wepapi
+    build:
+      context: .
+      dockerfile: WepApi\Dockerfile
