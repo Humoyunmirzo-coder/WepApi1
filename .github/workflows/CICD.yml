@@ -1,28 +1,40 @@
 name: CI
 
-on:
-  push:
-    branches:
-      - master
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up .NET 8
+      - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-           dotnet-version: '8.0.x'  # Specify the .NET version you want
+          dotnet-version: '8.0.x'
 
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build project
-        run: dotnet build --configuration Release
+      - name: Build
+        run: dotnet build --no-restore
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
 
       - name: Run tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test
+
